@@ -1,0 +1,33 @@
+version: "3.4"
+services:
+  load-balancer:
+    # note: development only image
+    build:
+      context: ./load-balancer/
+    ports:
+      - "443:443"
+      - "80:80"
+    links:
+      - web
+
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    volumes:
+      - ./src:/app
+    links:
+      - php
+
+  php:
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    environment:
+      - DB_SERVER=192.168.86.101
+      - APP_ENV=development
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./src:/app
+    stdin_open: true
