@@ -3,7 +3,8 @@ services:
   load-balancer:
     # note: development only image
     build:
-      context: ./load-balancer/
+      context: .
+      dockerfile: ./load-balancer/Dockerfile
     ports:
       - "443:443"
       - "80:80"

@@ -4,5 +4,5 @@ EXPOSE 80
 EXPOSE 443
 
 RUN apk add ca-certificates 
-COPY ./conf /etc/nginx/conf.d
-COPY ./ssl /ssl
+COPY ./load-balancer/conf /etc/nginx/conf.d
+COPY ./load-balancer/ssl /ssl

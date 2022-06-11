@@ -12,12 +12,14 @@ umask 066
 KEYSIZE=2048
 DAYS=3650
 certname="$1"
+prompt=no
 # altnames="DNS:$1"
 # while shift && (($#)); do altnames="$altnames,DNS:$1"; done
 # echo -e "basicConstraints=critical,CA:true,pathlen:0\nsubjectAltName=$altnames" > extensions.ini
 
-
+# https://github.com/openssl/openssl/issues/3536 -- certify.conf needed.
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -batch \
+    -config certify.conf \
     -keyout ssl/$certname.key -out ssl/$certname.crt 
 
 popd
