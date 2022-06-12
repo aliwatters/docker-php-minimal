@@ -15,6 +15,8 @@ Next steps:
 
 # Usage
 
+Requires docker >20 -- check with `docker -v`, preferred install in ubuntu `sudo snap install docker`
+
 ```
 cd load-balancer
 ./setup.sh
@@ -29,3 +31,5 @@ docker-compose up
 ```
 
 Visit: https://dev.example.org/ and accept the "self-signed certificate"
+
+To see an end with utf-8 from the mysql db see: https://dev.example.org/countries/us
