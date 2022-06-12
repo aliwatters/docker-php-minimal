@@ -27,6 +27,7 @@ services:
     environment:
       - DB_SERVER=192.168.86.101
       - APP_ENV=development
+      - PHP_OPCACHE_VALIDATE_TIMESTAMPS=1
     ports:
       - "9000:9000"
     volumes:
